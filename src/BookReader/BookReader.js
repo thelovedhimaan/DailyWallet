@@ -11,6 +11,7 @@ const styles = {
 };
 function BookReader({ classes }) {
    const [state, setstate] = useState('');
+   const [Book, setBook] = useState('');
    const [Store, setStore] = useState([]);
    const [Load, setLoad] = useState(false);
    const handleChange = (evt) => {
@@ -18,24 +19,25 @@ function BookReader({ classes }) {
    };
    const handleSubmit = (evt) => {
       evt.preventDefault();
+      setBook(state);
       getBook(evt.target.value);
       // setLoad(true);
    };
 
    const getBook = async (book) => {
-      setLoad(true);
-      try {
-         let Books = await axios.get(
-            `https://www.googleapis.com/books/v1/volumes?q=${book}`
-         );
+      // setLoad(true);
+      // try {
+      let Books = await axios.get(
+         `https://www.googleapis.com/books/v1/volumes?q=${Book}`
+      );
 
-         setStore(Books.data.items);
-         setLoad(false);
-      } catch (e) {
-         alert(e);
-         setLoad(false);
-         window.location.reload(false);
-      }
+      setStore(Books.data.items);
+      setLoad(false);
+      // } catch (e) {
+      //    alert(e);
+      //    setLoad(false);
+      //    window.location.reload(false);
+      // }
    };
    if (Load) {
       return (
@@ -76,8 +78,8 @@ function BookReader({ classes }) {
                      >
                         <Books
                            title={book.volumeInfo.title}
-                           key={book.volumeInfo.title}
                            id={book.volumeInfo.title}
+                           key={book.volumeInfo.title}
                            publisher={book.volumeInfo.publisher}
                            ratings={book.volumeInfo.ratingscount}
                            description={book.volumeInfo.description}
