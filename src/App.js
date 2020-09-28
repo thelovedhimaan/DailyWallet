@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import HomePage from './HomePage/HomePage';
+import BookReader from './BookReader/BookReader';
+import Calculator from './Calculator/Calculator';
+import Contact from './Contact/Contact';
+import DetailedWeather from './DetailedWeather/DetailedWeather';
+
+import TodoList from './TodoList/TodoList';
+import TopNews from './TopNews/TopNews';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   return (
+      <Router>
+         <Switch>
+            {' '}
+            <Route exact path="/BookReader">
+               <BookReader />
+            </Route>
+            <Route path="/Calculator">
+               <Calculator />
+            </Route>
+            <Route path="/About">
+               <Contact />
+            </Route>
+            <Route path="/DetailedWeather">
+               <DetailedWeather />
+            </Route>
+            <Route path="/TopNews">
+               <TopNews />
+            </Route>
+            <Route path="/TodoList">
+               <TodoList />
+            </Route>
+            <Route exact path="/">
+               <HomePage />
+            </Route>
+         </Switch>
+      </Router>
+   );
 }
 
 export default App;

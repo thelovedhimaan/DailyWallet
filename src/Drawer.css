@@ -1,0 +1,30 @@
+.dailyWallet {
+   color: whitesmoke;
+   font-size: 2rem;
+   margin-left: 90px;
+   width: 1350px;
+}
+h1 {
+   font-size: 60px;
+}
+a {
+   color: 'whitesmoke';
+   font-size: 1.1rem;
+}
+.tabs {
+   background-color: black;
+   padding-bottom: 0px;
+}
+.heading {
+   background-color: black;
+   height: 90px;
+   display: flex;
+   justify-content: left;
+   width: 1900px;
+}
+.colors {
+   color: whitesmoke;
+   background-color: #17497c;
+   padding-bottom: 410px;
+   padding-top: 20px;
+}
